@@ -1,0 +1,300 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+:root{
+--bg1:#0f172a;
+--bg2:#1e293b;
+--glass:rgba(255,255,255,0.15);
+--text:#ffffff;
+--cardBorder:rgba(255,255,255,0.2);
+}
+
+.light{
+--bg1:#74ebd5;
+--bg2:#9face6;
+--glass:rgba(255,255,255,0.35);
+--text:#111827;
+--cardBorder:rgba(255,255,255,0.4);
+}
+
+body{
+    min-height:100vh;
+    color:var(--text);
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    background-attachment:fixed;
+
+    transition:
+    background-image 0.6s ease,
+    background-color 0.6s ease,
+    color 0.4s ease;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.25);
+    z-index:-1;
+}
+
+.overlay{
+    position:fixed;
+    inset:0;
+
+    background:rgba(0,0,0,0.25);
+
+    backdrop-filter:blur(3px);
+
+    z-index:-1;
+}
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:25px 8%;
+}
+
+.logo{
+font-size:1.8rem;
+font-weight:700;
+}
+
+#themeToggle{
+border:none;
+width:55px;
+height:55px;
+border-radius:50%;
+cursor:pointer;
+font-size:1.2rem;
+background:var(--glass);
+color:var(--text);
+backdrop-filter:blur(15px);
+}
+
+main{
+width:90%;
+max-width:1200px;
+margin:auto;
+}
+
+.hero{
+    text-align:center;
+    margin-top:80px;
+}
+
+.hero h1{
+font-size:3rem;
+margin-bottom:15px;
+}
+
+.hero p{
+opacity:0.9;
+max-width:700px;
+margin:auto;
+margin-bottom:30px;
+}
+
+.search-box{
+display:flex;
+justify-content:center;
+gap:10px;
+flex-wrap:wrap;
+}
+
+.search-box input{
+width:350px;
+max-width:100%;
+padding:15px;
+border:none;
+border-radius:15px;
+background:var(--glass);
+color:var(--text);
+backdrop-filter:blur(15px);
+outline:none;
+}
+
+.search-box button{
+padding:15px 25px;
+border:none;
+border-radius:15px;
+cursor:pointer;
+font-weight:600;
+}
+
+.weather-card{
+margin-top:50px;
+background:var(--glass);
+backdrop-filter:blur(20px);
+border:1px solid var(--cardBorder);
+border-radius:25px;
+padding:35px;
+text-align:center;
+box-shadow:
+0 8px 32px rgba(0,0,0,0.2);
+}
+
+.weather-card{
+    transition:0.3s;
+}
+
+.weather-card:hover{
+    transform:translateY(-5px);
+}
+
+.weather-card img{
+width:120px;
+}
+
+.weather-card h1{
+font-size:4rem;
+margin:10px 0;
+}
+
+.weather-card h2{
+font-size:2rem;
+}
+
+.details{
+margin-top:30px;
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(180px,1fr));
+gap:20px;
+}
+
+.detail{
+background:rgba(255,255,255,0.08);
+padding:20px;
+border-radius:20px;
+}
+
+.detail span{
+font-size:2rem;
+}
+
+.forecast{
+margin-top:40px;
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(160px,1fr));
+gap:20px;
+}
+
+.forecast-card{
+    transition:0.3s;
+}
+
+.forecast-card:hover{
+    transform:scale(1.05);
+}
+
+.forecast-card{
+background:var(--glass);
+backdrop-filter:blur(20px);
+border-radius:20px;
+padding:20px;
+text-align:center;
+border:1px solid var(--cardBorder);
+}
+
+.forecast-card img{
+width:70px;
+}
+
+.loading{
+text-align:center;
+margin-top:30px;
+font-size:1.2rem;
+}
+
+.error{
+text-align:center;
+color:#ffb4b4;
+margin-top:20px;
+}
+
+@media(max-width:768px){
+
+    body{
+        background-attachment:scroll;
+    }
+
+    header{
+        padding:20px;
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .hero{
+        margin-top:30px;
+    }
+
+    .hero h1{
+        font-size:2rem;
+        line-height:1.3;
+    }
+
+    .hero p{
+        font-size:0.95rem;
+        padding:0 10px;
+    }
+
+    .search-box{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .search-box input{
+        width:100%;
+    }
+
+    .search-box button{
+        width:100%;
+    }
+
+    .weather-card{
+        padding:25px 15px;
+    }
+
+    .weather-card h1{
+        font-size:3rem;
+    }
+
+    .weather-card h2{
+        font-size:1.5rem;
+    }
+
+    .details{
+        grid-template-columns:1fr;
+    }
+
+    .forecast{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:480px){
+
+    .hero h1{
+        font-size:1.6rem;
+    }
+
+    .weather-card h1{
+        font-size:2.5rem;
+    }
+
+    .logo{
+        font-size:1.4rem;
+    }
+
+}
